@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: thelook_raw
+    database: red-night-510603-c1
+    schema: thelook_raw
+    tables:
+      - name: orders
+      - name: order_items
+      - name: users
+      - name: products
+      - name: events_part

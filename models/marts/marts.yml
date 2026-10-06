@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: One row per order, with revenue and a valid-order flag.
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: user_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: user_id
+
+  - name: dim_customers
+    description: One row per customer, with purchase history summarised.
+    columns:
+      - name: user_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fct_sessions
+    description: One row per website session, with funnel-stage flags.
+    columns:
+      - name: session_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: mart_cohort_retention
+    description: Monthly retention by first-purchase cohort.
+    columns:
+      - name: cohort_month
+        data_tests:
+          - not_null
