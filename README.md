@@ -112,6 +112,13 @@ dbt docs generate && dbt docs serve   # browse the docs and lineage graph
 
 The dbt profile uses OAuth against a BigQuery project that holds a `thelook_raw` dataset with copies of the five source tables.
 
+## Follow-up: checkout A/B test
+
+[ab_test/checkout_ab_test.ipynb](ab_test/checkout_ab_test.ipynb) designs and analyses an
+A/B test for the checkout recommendation: a sample size of 4,012 carts per group
+(80% power, 5% significance), a two-proportion z-test, and a rollout decision.
+The test data is simulated.
+
 ## Limits
 
 - The dataset is synthetic, so patterns are more uniform than real customer behaviour. Every session views a product, and channels perform almost identically.
